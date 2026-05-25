@@ -1,0 +1,11 @@
+@define-color background #230a4b;
+@define-color primary #7c74fa;
+@define-color on_primary #4c15a3;
+
+@define-color foreground #d4ccf9;
+@define-color on_background #d4ccf9;
+
+@define-color surface #1a110f;
+@define-color surface_variant #53433f;
+
+@define-color shadow #000000;
