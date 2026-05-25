@@ -1,0 +1,15 @@
+/* Paleta Tokyo Night Normalizada */
+@define-color main-bg      #15161E; /* background */
+@define-color main-brdr    #1A1B26; /* background-alt */
+@define-color main-fg      #C0CAF5; /* foreground */
+@define-color muted-fg     #565F89;
+
+/* Colores de Módulos */
+@define-color accent-pulseaudio #7AA2F7; /* blue */
+@define-color accent-backlight  #E0AF68; /* yellow */
+@define-color accent-weather    #FF9E64; /* orange */
+@define-color accent-disk       #BB9AF7; /* purple */
+@define-color accent-network    #9ECE6A; /* green */
+@define-color accent-battery    #C0CAF5; /* foreground */
+@define-color accent-workspace  #33467C; /* selected */
+@define-color accent-urgent     #F7768E; /* urgent / red */

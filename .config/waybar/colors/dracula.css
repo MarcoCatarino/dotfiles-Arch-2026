@@ -1,0 +1,15 @@
+/* Paleta Dracula Normalizada */
+@define-color main-bg      #1E1F29; /* background */
+@define-color main-brdr    #282A36; /* background-alt */
+@define-color main-fg      #FFFFFF; /* foreground */
+@define-color muted-fg     #6272A4;
+
+/* Colores de Módulos */
+@define-color accent-pulseaudio #8BE9FD; /* cyan */
+@define-color accent-backlight  #F1FA8C; /* yellow */
+@define-color accent-weather    #FFB86C; /* orange */
+@define-color accent-disk       #FF79C6; /* pink */
+@define-color accent-network    #50FA7B; /* active / green */
+@define-color accent-battery    #FFFFFF; /* foreground */
+@define-color accent-workspace  #BD93F9; /* selected / purple */
+@define-color accent-urgent     #FF5555; /* urgent / red */

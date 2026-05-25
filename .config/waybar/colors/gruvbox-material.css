@@ -1,0 +1,15 @@
+/* Paleta Gruvbox Material Normalizada */
+@define-color main-bg      #282828; /* bg1 */
+@define-color main-brdr    #45403d; /* bg3 */
+@define-color main-fg      #d4be98; /* fg */
+@define-color muted-fg     #a89984; /* grey0 */
+
+/* Colores de Módulos */
+@define-color accent-pulseaudio #89b482; /* aqua */
+@define-color accent-backlight  #d8a657; /* yellow */
+@define-color accent-weather    #e78a4e; /* orange */
+@define-color accent-disk       #d3869b; /* purple */
+@define-color accent-network    #a9b665; /* green */
+@define-color accent-battery    #fbf1c7; /* ligh0 */
+@define-color accent-workspace  #7daea3; /* blue */
+@define-color accent-urgent     #ea6962; /* red */

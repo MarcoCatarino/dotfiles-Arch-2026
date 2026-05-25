@@ -1,0 +1,15 @@
+/* Paleta Catppuccin Mocha Normalizada */
+@define-color main-bg      #1e1e2e; /* base */
+@define-color main-brdr    #313244; /* surface0 */
+@define-color main-fg      #cdd6f4; /* text */
+@define-color muted-fg     #6c7086; /* overlay0 */
+
+/* Colores de Módulos */
+@define-color accent-pulseaudio #89dceb; /* sky / aqua */
+@define-color accent-backlight  #f9e2af; /* yellow */
+@define-color accent-weather    #fab387; /* orange */
+@define-color accent-disk       #cba6f7; /* mauve / purple */
+@define-color accent-network    #a6e3a1; /* green */
+@define-color accent-battery    #cdd6f4; /* text / ligh0 */
+@define-color accent-workspace  #89b4fa; /* blue */
+@define-color accent-urgent     #f38ba8; /* red */

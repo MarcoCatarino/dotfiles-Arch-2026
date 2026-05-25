@@ -1,0 +1,196 @@
+{
+  "layer": "top",
+  "position": "top",
+  "width": 1200,
+
+  "modules-left": [
+    "battery",
+    "pulseaudio",
+    "backlight",
+    "disk",
+    "network"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "custom/weather",
+    "clock"
+  ],
+
+  // Workspaces (Optimizado para usar con tu CSS de puntos)
+  "workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": ""
+    }
+  },
+
+  // Clock Normal (Sin colores hardcoded para que sea dinámico)
+  "clock": {
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span><b>{}</b></span>",
+        "days": "<span><b>{}</b></span>",
+        "weeks": "<span><b>W{}</b></span>",
+        "weekdays": "<span><b>{}</b></span>",
+        "today": "<span background='#2ac3de' color='#1a1b26'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    },
+    "format": "| {:%a %b %d   | %H:%M  }",
+    "interval": 1,
+    "on-click": "gnome-calendar"
+  },
+
+  // Network (Typos corregidos)
+  "network": {
+    "format": "⚠  Disabled",
+    "format-wifi": "󰖩  {essid}",
+    "format-ethernet": "󰈀 OK",
+    "format-disconnected": "⚠  Disconnected", 
+    "tooltip-format": "󰩟 {ifname} via {gwaddr}",
+    "tooltip-format-wifi": "󰖩  {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "󰈀 {ifname} ({ipaddr}/{cidr})",
+    "tooltip-format-disconnected": "⚠  Disconnected",
+    "on-click": "nm-connection-editor"
+  },
+
+  // Battery
+  "battery": {
+    "interval": 60,
+    "states": { "warning": 30, "critical": 15},
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+        "default": ["", "", "", "", ""],
+        "charging": ["󰢟","󱊤", "󱊥", "󱊦"]
+    },
+    "max-length": 25
+  },
+
+  // Disk Storage
+  "disk": {
+    "interval": 30,
+    "format": "  {percentage_free}%",
+    "path": "/"
+  },
+
+  // Weather (Cancun config)
+  "custom/weather": {
+    "exec": "~/.config/waybar/scripts/get_weather.sh Mexico+Cancun",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+  },
+
+  // Light
+  "backlight": {
+    "format": "{icon} {percent: >2}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-scroll-down": "brightnessctl -c backlight set 5%-",
+    "on-scroll-up": "brightnessctl -c backlight set +5%",
+    "tooltip-format": "Brillo: {percent}%"
+  },
+
+  // Pulse Audio
+  "pulseaudio": {
+    "format": "{icon} {volume: >2}%",
+    "format-bluetooth": "{icon} {volume: >2}%",
+    "format-muted": "󰸈",
+    "format-icons": {
+      "headphones": "󰋋",
+      "handsfree": "󰋋", 
+      "headset": "󰋋",
+      "phone": "󰄜",
+      "portable": "󰄜",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+  },
+
+  // MediaPlayer (Removido el '$' erróneo)
+  "custom/media": {
+    "format": "{icon} {}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "smooth-scrolling-threshold": 10,
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "exec": "~/.config/waybar/scripts/mediaplayer.py > /dev/null"
+  },
+
+  // Spotify
+  "custom/spotify": {
+    "format": "{icon} {}",
+    "escape": true,
+    "return-type": "json",
+    "max-length": 40,
+    "on-click": "playerctl -p spotify play-pause",
+    "on-click-right": "killall spotify",
+    "smooth-scrolling-threshold": 10,
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+    "exec-if": "pgrep spotify"
+  },
+
+  // Pipewire
+  "custom/pipewire": {
+    "tooltip": false,
+    "max-length": 6,
+    "exec": "$HOME/.config/waybar/scripts/pipewire.sh",
+    "on-click": "pavucontrol",
+    "on-click-right": "qpwgraph"
+  },
+
+  // Cava
+  "cava": {
+    "framerate": 60,
+    "autosens": 1,
+    "sensitivity": 100,
+    "bars": 12,
+    "lower_cutoff_freq": 30,
+    "higher_cutoff_freq": 12000, 
+    "hide_on_silence": false,
+    "method": "pipewire",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": true,
+    "waves": false,
+    "noise_reduction": 0.88,
+    "input_delay": 1,
+    "format-icons": [" ", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  }
+}

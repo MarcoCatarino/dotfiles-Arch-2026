@@ -1,0 +1,15 @@
+/* Paleta Cyberpunk Normalizada */
+@define-color main-bg      #000B1E; /* background */
+@define-color main-brdr    #0A1528; /* background-alt */
+@define-color main-fg      #0ABDC6; /* foreground / neon cyan */
+@define-color muted-fg     #005F73;
+
+/* Colores de Módulos */
+@define-color accent-pulseaudio #0ABDC6; /* cyan */
+@define-color accent-backlight  #FADE60; /* yellow */
+@define-color accent-weather    #FF6B35; /* orange */
+@define-color accent-disk       #FF007F; /* neon pink */
+@define-color accent-network    #00FF00; /* active / green */
+@define-color accent-battery    #0ABDC6; /* foreground */
+@define-color accent-workspace  #0ABDC6; /* selected */
+@define-color accent-urgent     #FF0000; /* urgent / red */

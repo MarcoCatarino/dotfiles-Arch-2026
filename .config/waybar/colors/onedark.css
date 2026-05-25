@@ -1,0 +1,15 @@
+/* Paleta One Dark Normalizada */
+@define-color main-bg      #1E2127; /* background */
+@define-color main-brdr    #282B31; /* background-alt */
+@define-color main-fg      #FFFFFF; /* foreground */
+@define-color muted-fg     #5C6370;
+
+/* Colores de Módulos */
+@define-color accent-pulseaudio #61AFEF; /* selected / blue */
+@define-color accent-backlight  #E5C07B; /* yellow */
+@define-color accent-weather    #D19A66; /* orange */
+@define-color accent-disk       #C678DD; /* purple */
+@define-color accent-network    #98C379; /* active / green */
+@define-color accent-battery    #FFFFFF; /* foreground */
+@define-color accent-workspace  #61AFEF; /* selected */
+@define-color accent-urgent     #E06C75; /* urgent / red */

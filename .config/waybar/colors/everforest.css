@@ -1,0 +1,15 @@
+/* Paleta Everforest Normalizada */
+@define-color main-bg      #323D43; /* background */
+@define-color main-brdr    #3C474D; /* background-alt */
+@define-color main-fg      #DAD1BE; /* foreground */
+@define-color muted-fg     #859289; 
+
+/* Colores de Módulos */
+@define-color accent-pulseaudio #7FBBB3; /* selected / cyan */
+@define-color accent-backlight  #DBBC7F; /* yellow */
+@define-color accent-weather    #E69875; /* orange */
+@define-color accent-disk       #D699B6; /* purple */
+@define-color accent-network    #A7C080; /* active / green */
+@define-color accent-battery    #DAD1BE; /* foreground */
+@define-color accent-workspace  #7FBBB3; /* selected */
+@define-color accent-urgent     #E67E80; /* urgent / red */
