@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+rofi_colors="$HOME/.config/rofi/colors"
+current_theme="$HOME/.config/rofi/current-theme.rasi"
+# Usamos tu tema de rofi base para la interfaz de selección
+rofi_config="$HOME/.config/rofi/config.rasi"
+
+# 1. Listar archivos de colores (.rasi) disponibles
+menu() {
+    options=()
+    while IFS= read -r file; do
+        if [ -f "$rofi_colors/$file" ]; then
+            options+=("$(basename "$file" .rasi)")
+        fi
+    done < <(find "$rofi_colors" -maxdepth 1 -type f -name '*.rasi' -exec basename {} \; | sort)
+    
+    printf '%s\n' "${options[@]}"
+}
+
+# 2. Aplicar el tema mediante enlace simbólico
+apply_theme() {
+    ln -sf "$rofi_colors/$1.rasi" "$current_theme"
+}
+
+# Función Principal
+main() {
+    choice=$(menu | rofi -dmenu -config "$rofi_config" -p "Themes")
+
+    if [[ -z "$choice" ]]; then
+        echo "No se seleccionó ningún tema. Saliendo."
+        exit 0
+    fi
+
+    apply_theme "$choice"
+}
+
+# Evitar duplicados de Rofi
+if pgrep -x "rofi" >/dev/null; then
+    pkill rofi
+    exit 0
+fi
+
+main

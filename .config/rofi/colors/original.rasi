@@ -1,0 +1,8 @@
+* {
+    background:     #1B3437FF; /* Tu on-secondary original con canal alfa completo */
+    background-alt: #324B4DFF; /* Tu secondary-container original */
+    foreground:     #FFFFFFFF;
+    selected:       #B1CBCEFF; /* Tu secondary original */
+    active:         #00CCF5FF;
+    urgent:         #FFB4ABFF;
+}
