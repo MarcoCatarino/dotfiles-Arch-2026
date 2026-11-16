@@ -4,7 +4,8 @@
 
 hl.config({
     input = {
-        kb_layout  = "us",
+        kb_layout  = "us,es",
+        kb_variant = ",",
 
         follow_mouse = 1,
 

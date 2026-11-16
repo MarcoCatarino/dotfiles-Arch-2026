@@ -7,7 +7,7 @@
 
 terminate_clients() {
   	TIMEOUT=5
-	# Get a list of all client PIDs in the current Hyprland session
+	# List all client PIDs in current Hyprland session
 	client_pids=$(hyprctl clients -j | jq -r '.[] | .pid')
 
 	# Send SIGTERM (kill -15) to each client PID and wait for termination
@@ -20,6 +20,7 @@ terminate_clients() {
 	for pid in $client_pids; do
 		# Wait for the process to terminate
 		while kill -0 $pid 2>/dev/null; do
+		
 		current_time=$(date +%s)
 		elapsed_time=$((current_time - start_time))
 

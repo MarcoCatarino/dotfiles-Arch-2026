@@ -1,0 +1,16 @@
+[general]
+# Definimos el número fijo de barras que quieres ver en tu Waybar (ej. 10 o 12)
+bars = 12
+autosens = 1
+
+[input]
+method = pipewire
+source = auto
+
+[output]
+# Cambiamos el método de salida a raw (crudo) y formato ascii para el script de Waybar
+method = raw
+data_format = ascii
+# El valor máximo por barra (coincide con los 7 niveles de caracteres unicode que pusimos arriba)
+ascii_max_range = 7
+bar_delimiter = 59

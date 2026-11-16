@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Thanks https://github.com/JaKooLit ! #
-# Script for waybar layout or configs
 
 set -euo pipefail
 IFS=$'\n\t'
@@ -10,7 +9,7 @@ waybar_themes="~/.config/waybar/themes"
 waybar_config="~/.config/waybar/config"
 rofi_config="~/.config/rofi/themes/waybar-layout.rasi"
 
-# Function to display menu options
+# Display menu options
 menu() {
     options=()
     while IFS= read -r file; do
@@ -30,7 +29,7 @@ apply_config() {
 restart_waybar_if_needed() {
     if pgrep -x "waybar" >/dev/null; then
         pkill waybar
-        sleep 0.1  # Delay for Waybar to completely terminate
+        sleep 0.1
     fi
     ./refresh.sh &
 }

@@ -2,7 +2,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
-    modi:                        "drun,window";
+    modi:                        "drun,window,Nvim:~/.config/rofi/scripts/nvim-selector.sh";
     show-icons:                  true;
     icon-theme:                  "Colloid";
     display-drun:                "APPS";

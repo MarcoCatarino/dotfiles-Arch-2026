@@ -1,0 +1,12 @@
+font_family        JetBrainsMono Nerd Font
+font_size 10.0
+
+background_opacity 0.5
+background_blur 0
+
+map ctrl+c copy_to_clipboard
+map ctrl+v paste_from_clipboard
+map ctrl+shift+c send_text all \x03
+
+enable_text_selection yes
+copy_on_select no

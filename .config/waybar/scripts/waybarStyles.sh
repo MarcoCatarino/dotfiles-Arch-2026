@@ -3,13 +3,12 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# 1. Definir rutas exactas de tu sistema
+# 1. Define routes
 waybar_colors="$HOME/.config/waybar/colors"
 waybar_style="$HOME/.config/waybar/style.css"
-# Apuntamos a tu config base unificado (el de Zero Two)
 rofi_config="$HOME/.config/rofi/config.rasi"
 
-# Función para listar los estilos .css disponibles
+# List CSS
 menu() {
     options=()
     while IFS= read -r file; do
@@ -21,13 +20,13 @@ menu() {
     printf '%s\n' "${options[@]}"
 }
 
-# Aplicar el estilo mediante un enlace simbólico flexible
+# Applied style
 apply_style() {
     ln -sf "$waybar_colors/$1.css" "$HOME/.config/waybar/current-theme.css"
     restart_waybar
 }
 
-# Reiniciar Waybar para aplicar los colores en caliente
+# Reload Waybar
 restart_waybar() {
     if pgrep -x "waybar" >/dev/null; then
         pkill waybar
@@ -36,9 +35,8 @@ restart_waybar() {
     waybar &
 }
 
-# Función Principal
 main() {
-    # Usamos tu config base y le añadimos el prompt "-p Waybar" para estética
+    # Use base config and add "-p Waybar"
     choice=$(menu | rofi -dmenu -config "$rofi_config" -p "Waybar")
 
     if [[ -z "$choice" ]]; then
@@ -49,7 +47,7 @@ main() {
     apply_style "$choice"
 }
 
-# Evitar duplicados de Rofi
+# Reduce duplicate Rofi
 if pgrep -x "rofi" >/dev/null; then
     pkill rofi
     exit 0

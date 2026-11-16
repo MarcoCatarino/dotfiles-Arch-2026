@@ -10,8 +10,6 @@ local terminalSecond = "kitty"
 
 local codeMain = "code"
 local codeSecond = "ghostty -e nvim"
-local nvimSearch = "~/.config/hypr/scripts/nvim-selector.sh"
-
 local fileManager = "nautilus"
 local textEditor = "gnome-text-editor"
 
@@ -21,12 +19,16 @@ local textEditor = "gnome-text-editor"
 
 local mainMod = "SUPER"
 local secondMod = "ALT"
+local thirdMod = "CTRL"
 
 -- Manu
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 
 -- Menu Config
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("/home/developer/.config/rofi/scripts/menuPersonalizacion.sh"))
+
+-- Magic Space
+hl.bind(secondMod .. " + Space", hl.dsp.workspace.toggle_special("magic"))
 
 -- Kill Action
 local closeWindowBind =  hl.bind(mainMod .. " + Backspace", hl.dsp.window.close())
@@ -41,25 +43,49 @@ hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd(terminalSecond))
 -- IDE Code
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(codeMain))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(codeSecond))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(nvimSearch))
 
 -- Browsers
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("brave"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("chromium"))
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("microsoft-edge-stable"))
 
 -- Daily Apps
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(textEditor))
 
--- Magic Space
-hl.bind(secondMod .. " + Space", hl.dsp.workspace.toggle_special("magic"))
+-- Custom Apps (media)
+hl.bind(thirdMod .. " + SHIFT + 1", hl.dsp.exec_cmd("chromium --app=https://www.youtube.com/"))
+hl.bind(thirdMod .. " + SHIFT + 2", hl.dsp.exec_cmd("spotify"))
+hl.bind(thirdMod .. " + SHIFT + 3", hl.dsp.exec_cmd("chromium --app=https://web.whatsapp.com/"))
+hl.bind(thirdMod .. " + SHIFT + 4", hl.dsp.exec_cmd("chromium --app=https://gmail.com/"))
+hl.bind(thirdMod .. " + SHIFT + 5", hl.dsp.exec_cmd("discord"))
+
+-- Code Apps (coder) [CTRL + N#]
+hl.bind(thirdMod .. " + 1", hl.dsp.exec_cmd("chromium --app=https://github.com/MarcoCatarino?tab=repositories"))
+hl.bind(thirdMod .. " + 2", hl.dsp.exec_cmd("dbeaver"))
+hl.bind(thirdMod .. " + 3", hl.dsp.exec_cmd("chromium --app=https://hub.docker.com/repositories/marcod3002"))
+hl.bind(thirdMod .. " + 4", hl.dsp.exec_cmd("chromium --app=https://console.cloud.google.com/welcome?hl=es-419&organizationId=0"))
+hl.bind(thirdMod .. " + 5", hl.dsp.exec_cmd("chromium --app=https://cloud.mongodb.com/v2#/org/65f1b83fa448983fb46da6fb/projects"))
+hl.bind(thirdMod .. " + 6", hl.dsp.exec_cmd("postman"))
+hl.bind(thirdMod .. " + 7", hl.dsp.exec_cmd("chromium --app=https://figma.com"))
+
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("firefox --new-window https://github.com/MarcoCatarino?tab=repositories"))
+
+-- Custom AI (ai apps) [ALT + SHIFT + N#]
+hl.bind(secondMod .. " + SHIFT + F1", hl.dsp.exec_cmd("chromium --app=https://claude.ai/new"))
+hl.bind(secondMod .. " + SHIFT + F2", hl.dsp.exec_cmd("chromium --app=https://gemini.google.com/app?hl=es"))
+hl.bind(secondMod .. " + SHIFT + F3", hl.dsp.exec_cmd("chromium --app=https://chatgpt.com/"))
+hl.bind(secondMod .. " + SHIFT + F4", hl.dsp.exec_cmd("chromium --app=https://copilot.com/"))
+hl.bind(secondMod .. " + SHIFT + F5", hl.dsp.exec_cmd("chromium --app=https://cursor.com/agents"))
 
 -- Screenshot
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region -o $HOME/Imagens/Screens"))
 
-
+-- Keyboard custom + Emojis
+hl.bind(mainMod .. " + Period", hl.dsp.exec_cmd("rofimoji --action copy"))
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd("/home/developer/.config/hypr/scripts/keyboardToggle.sh"))
 
 ----------------------
 ---- Window Rules ----
@@ -81,7 +107,7 @@ end
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
--- Navigate between windows active
+-- Navigate between windows
 hl.bind(mainMod .. " + TAB", hl.dsp.focus({ workspace = "m+1" }))
 hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp.focus({ workspace = "m-1" }))
 
@@ -98,12 +124,17 @@ hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.swap({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.swap({ direction = "down" }))
 
 -- Window Specials
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Backslash", hl.dsp.layout("togglesplit"))
 
--- Resize Window
 
+-- Window Resize
+hl.bind(mainMod .. " + bracketleft",  hl.dsp.window.resize({ x = -100, y = 0, relative = true }))
+hl.bind(mainMod .. " + bracketright", hl.dsp.window.resize({ x = 100,  y = 0, relative = true }))
+
+hl.bind(mainMod .. " + SHIFT + bracketleft",  hl.dsp.window.resize({ x = 0, y = -100, relative = true }))
+hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.window.resize({ x = 0, y = 100,  relative = true }))
 
 ----------------------
 ---- Custom Basic ----

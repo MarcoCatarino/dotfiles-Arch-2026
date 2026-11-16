@@ -7,8 +7,10 @@ hl.env("TZ", "UTC")
 hl.env("LANG", "en_US.UTF-8")
 hl.env("LC_ALL", "en_US.UTF-8")
 
+-- Cursor
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+--hl.env("WLR_NO_HARDWARE_CURSORS", "1")
 
 -- Toolkit Backend
 hl.env("GDK_BACKEND", "wayland,x11,*")
